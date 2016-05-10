@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -16,12 +17,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    
+   
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    NSURL *myUrl = [NSURL URLWithString:self.myTextField.text];
+    
+    NSURLRequest *newrequest = [[NSURLRequest alloc]initWithURL:myUrl];
+    
+    [self.webView loadRequest:newrequest];
+    
+    //self.myTextField.delegate = self;
+    [self.myTextField resignFirstResponder];
+    return YES;
+}
+
+
+
+//- (IBAction)openPage:(UIButton *)sender
+//{
+// 
+//    
+//    NSURL *appleUrl = [NSURL URLWithString:@"http://google.com"];
+//    
+//    //kicking off to safari
+//  //  [[UIApplication sharedApplication] openURL:appleUrl];
+//    
+//    //loading locally in webview
+//    NSURLRequest *newrequest = [[NSURLRequest alloc]initWithURL:appleUrl];
+//    
+//    [self.webView loadRequest:newrequest];
+//}
+
 
 @end

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,96 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QIB-uu-6hW">
+                                <rect key="frame" x="0.0" y="72" width="600" height="484"/>
+                                <color key="backgroundColor" red="0.89411771299999998" green="0.98431378599999997" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="qTb-lU-hcp">
+                                <rect key="frame" x="20" y="28" width="570" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="eVt-gD-uA0">
+                                        <connections>
+                                            <action selector="goBack" destination="QIB-uu-6hW" id="Wi9-uW-luw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" width="222" style="plain" id="rlj-6E-qd4">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="250" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="QII-BK-Rzn">
+                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="BYZ-38-t0r" id="e7F-q4-WVb"/>
+                                            </connections>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="2gC-Fw-Pej">
+                                        <connections>
+                                            <action selector="goForward" destination="QIB-uu-6hW" id="xMa-Zz-IEm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QIB-uu-6hW" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="2Yy-jY-FyJ"/>
+                            <constraint firstItem="qTb-lU-hcp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="5sX-hW-dMV"/>
+                            <constraint firstItem="qTb-lU-hcp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="64L-dw-FUP">
+                                <variation key="widthClass=regular" constant="-90"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="QIB-uu-6hW" secondAttribute="trailing" id="Cjh-c9-Ofk"/>
+                            <constraint firstItem="qTb-lU-hcp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Guu-0s-IER">
+                                <variation key="widthClass=compact" constant="-14"/>
+                            </constraint>
+                            <constraint firstItem="qTb-lU-hcp" firstAttribute="leading" secondItem="QIB-uu-6hW" secondAttribute="leading" id="IWX-Rk-Xve"/>
+                            <constraint firstItem="QIB-uu-6hW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JDL-Ns-TAT"/>
+                            <constraint firstItem="qTb-lU-hcp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="QqD-49-ptN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qTb-lU-hcp" secondAttribute="trailing" constant="50" id="XUS-8y-JdY">
+                                <variation key="widthClass=compact" constant="-13"/>
+                            </constraint>
+                            <constraint firstItem="QIB-uu-6hW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="52" id="Xl5-Vi-yWK"/>
+                            <constraint firstItem="qTb-lU-hcp" firstAttribute="trailing" secondItem="QIB-uu-6hW" secondAttribute="trailing" id="mQn-0W-qbg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qTb-lU-hcp" secondAttribute="trailing" constant="-10" id="pSe-QL-V04"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5sX-hW-dMV"/>
+                                <exclude reference="64L-dw-FUP"/>
+                                <exclude reference="IWX-Rk-Xve"/>
+                                <exclude reference="mQn-0W-qbg"/>
+                                <exclude reference="pSe-QL-V04"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="5sX-hW-dMV"/>
+                                <exclude reference="Guu-0s-IER"/>
+                                <include reference="IWX-Rk-Xve"/>
+                                <exclude reference="QqD-49-ptN"/>
+                                <exclude reference="XUS-8y-JdY"/>
+                                <include reference="mQn-0W-qbg"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="64L-dw-FUP"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="myTextField" destination="QII-BK-Rzn" id="vJF-Au-Qvo"/>
+                        <outlet property="webView" destination="QIB-uu-6hW" id="Lyk-UR-d3v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="557.25" y="259.5"/>
         </scene>
     </scenes>
 </document>
