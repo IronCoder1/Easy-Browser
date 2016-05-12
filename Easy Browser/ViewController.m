@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 
-@interface ViewController ()
+@interface ViewController ()<UITextFieldDelegate>
 
 @end
 
